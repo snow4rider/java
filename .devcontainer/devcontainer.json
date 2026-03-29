@@ -1,0 +1,71 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+	"name": "Java Devcontainer",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/java:3-25-trixie",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest",
+			"ppa": "false"
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "25",
+			"jdkDistro": "amzn",
+			"installMaven": "true",
+			"mavenVersion": "3.9.7",
+			"installGradle": "false"
+		}
+	},
+	"runArgs": ["--name","java-devcontainer"],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "java -version",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"settings": {
+				// Editor Basics
+				"editor.fontSize": 14, // Adjust to your preference
+				"editor.lineHeight": 22, // Adjust to your preference
+				"editor.wordWrap": "on", // Prevents horizontal scrolling for long lines
+				"editor.minimap.enabled": false, // Shows an overview map of the code
+				"editor.renderWhitespace": "all", // Visualizes all whitespace characters
+				"editor.cursorBlinking": "smooth", // Smooths the cursor's blinking animation
+				"editor.cursorSmoothCaretAnimation": "on", // Makes the caret smoothly move after typing
+				"editor.fontLigatures": true, // Requires a font that supports ligatures, like Fira Code
+				"editor.bracketPairColorization.enabled": true, // Helps identify matching brackets with colors
+				"editor.guides.bracketPairs": true, // Adds vertical lines to indicate bracket scope
+				"workbench.iconTheme": "catppuccin-icons",
+				"catppuccin-icons.flavor": "macchiato",
+  				"workbench.colorTheme": "Catppuccin Macchiato",
+				// File Management and Automation
+				"files.autoSave": "onFocusChange", // Automatically saves when you switch files or applications
+				"files.insertFinalNewline": true, // Ensures files end with a newline character
+				"files.trimTrailingWhitespace": true, // Removes excess whitespace at the end of lines
+				// Formatting (requires a formatter extension like Prettier)
+				"editor.formatOnSave": true, // Automatically formats the file on save
+				"editor.defaultFormatter": "redhat.java", // Sets Prettier as the default formatter (ensure extension is installed)
+				"editor.codeActionsOnSave": {
+					"source.fixAll.eslint": "explicit" // Automatically fix ESLint issues on save (ensure ESLint extension is installed)
+				},
+				// UI/Navigation
+				"workbench.settings.editor": "json", // Sets the settings UI to open the JSON file directly
+				"workbench.editor.enablePreview": false, // Keeps new files open in a permanent tab instead of preview mode
+				"breadcrumbs.enabled": true, // Displays the current file path and symbol hierarchy
+				"explorer.autoReveal": true, // Reveals the active file in the sidebar explorer
+				"workbench.sideBar.location": "left", // Default sidebar location
+				// Terminal
+				"terminal.integrated.fontSize": 12 // Adjust terminal font size
+			},
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"Catppuccin.catppuccin-vsc",
+				"Catppuccin.catppuccin-vsc-icons"
+			]
+		}
+	}
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
